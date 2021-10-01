@@ -85,6 +85,24 @@ class DatabaseSeeder extends Seeder
 			"bio" => "Hey ! I need a sugar daddy *.* ",
 			"is_highlighted" => 1,
 	   ]);
+
+	   DB::table("users")->insert([
+		"user_type_id" => 3,
+		"first_name" => "hhhh",
+		"last_name" => "Fahhhmily",
+		"email" => "test1@gmail.com",
+		"password" => bcrypt("test123"),
+		"gender" => 0,
+		"interested_in" => 0,
+		"dob" => "1981-02-12",
+		"height" => "120",
+		"weight" => "78",
+		"nationality" => "lebanese",
+		"net_worth" => "100000",
+		"currency" => "LBP",
+		"bio" => "Hey ! I need a sugar daddy *.* ",
+		"is_highlighted" => 1,
+   ]);
 	   
     }
 }
