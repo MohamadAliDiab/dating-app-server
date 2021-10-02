@@ -3,9 +3,12 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\UserBlock;
 use App\Models\UserFavorite;
 use App\Models\UserConnection;
+use App\Models\UserMessage;
 use App\Models\UserNotification;
+use App\Models\UserPicture;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -31,8 +34,6 @@ class UserController extends Controller{
 		$user->last_name = $request->last_name;
 		$user->email = $request->email;
 		$user->password = Hash::make($request->password);
-		
-
 		$user->gender = $request->gender;
 		$user->interested_in = $request->interested_in;
 		$user->dob = $request->dob;
@@ -89,6 +90,92 @@ class UserController extends Controller{
 		
 		return json_encode("favorite");
 	}
+
+    function block($blocked){
+        $user = Auth::user();
+        $id = $user->id;
+
+        $userBlock = new UserBlock;
+        $userBlock->from_user_id = $id;
+        $userBlock->to_user_id = $blocked;
+        $userBlock->save();
+        return json_encode("done");
+
+    }
+
+    function appPic($pic){
+
+        $userPic = UserPicture::where('id', '=', $pic);
+        $userPic->is_approved = true;
+        $userPic->save();
+        return json_encode("done");
+    }
+
+    function rejectPic($pic){
+
+        $userPic = UserPicture::where('id', '=', $pic);
+        $userPic->is_approved = false;
+        $userPic->save();
+        return json_encode("done");
+    }
+
+    function appMsg($msg){
+
+        $userMessage = UserMessage::where('id', '=', $msg);
+        $userMessage->is_approved = true;
+        $userMessage->save();
+        return json_encode("done");
+    }
+
+    function rejectMsg($msg){
+
+        $userMessage = UserMessage::where('id', '=', $msg);
+        $userMessage->is_approved = false;
+        $userMessage->save();
+        return json_encode("done");
+    }
+
+    function readMsg($msg){
+
+        $userMessage = UserMessage::where('id', '=', $msg);
+        $userMessage->is_read = true;
+        $userMessage->save();
+        return json_encode("done");
+    }
+
+    function makeHighlighted($id){
+
+        $user = User::where("id", '=', $id);
+        $user->is_highlighted = 1;
+        $user->save();
+        return json_encode("done");
+    }
+
+    function removeHighlighted($id){
+
+        $user = User::where("id", '=', $id);
+        $user->is_highlighted = 0;
+        $user->save();
+        return json_encode("done");
+    }
+
+    function editInfo($first_name, $last_name, $height, $weight, $net_worth, $currency, $bio ,$nationality, $email){
+        $user = Auth::user();
+
+        $user->first_name = $first_name;
+        $user->last_name = $last_name;
+        $user->email = $email;
+        $user->height = $height;
+        $user->weight = $weight;
+        $user->nationality = $nationality;
+        $user->net_worth = $net_worth;
+        $user->currency = $currency;
+        $user->bio = $bio;
+        $user->save();
+
+        return json_encode("done");
+    }
+
 
 	function test(){
 		$user = Auth::user();
