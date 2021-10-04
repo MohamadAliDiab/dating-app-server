@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
@@ -14,82 +15,82 @@ use Illuminate\Support\Facades\Hash;
 
 use Auth;
 
-class UserController extends Controller{
-	
-	function highlighted(){
-		$highlighted_users = User::where("is_highlighted", 1)->limit(6)->get()->toArray();
-		return json_encode($highlighted_users);
-	}
+class UserController extends Controller {
 
-	function interest(){
-		$user = Auth::user();
-		$usersInterest = User::where("gender", $user->interested_in)->get()->toArray();
-		return json_encode($usersInterest);
-	}
+    function highlighted(){
+        $highlighted_users = User::where("is_highlighted", 1)->limit(6)->get()->toArray();
+        return json_encode($highlighted_users);
+    }
 
-	function register(Request $request){
-		$user = new User;
-		$user->user_type_id = $request->user_type_id;
-		$user->first_name = $request->first_name;
-		$user->last_name = $request->last_name;
-		$user->email = $request->email;
-		$user->password = Hash::make($request->password);
-		$user->gender = $request->gender;
-		$user->interested_in = $request->interested_in;
-		$user->dob = $request->dob;
-		$user->height = $request->height;
-		$user->weight = $request->weight;
-		$user->nationality = $request->nationality;
-		$user->net_worth = $request->net_worth;
-		$user->currency = $request->currency;
-		$user->bio = $request->bio;
-		$user->is_highlighted = $request->is_highlighted;
-		$user->save();
+    function interest(){
+        $user = Auth::user();
+        $usersInterest = User::where("gender", $user->interested_in)->get()->toArray();
+        return json_encode($usersInterest);
+    }
 
-		return json_encode("Hello");
-	}
-	
-	function favorite($favorite){
-		$user = Auth::user();
-		$id = $user->id;
+    function register(Request $request){
+        $user = new User;
+        $user->user_type_id = $request->user_type_id;
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->gender = $request->gender;
+        $user->interested_in = $request->interested_in;
+        $user->dob = $request->dob;
+        $user->height = $request->height;
+        $user->weight = $request->weight;
+        $user->nationality = $request->nationality;
+        $user->net_worth = $request->net_worth;
+        $user->currency = $request->currency;
+        $user->bio = $request->bio;
+        $user->is_highlighted = $request->is_highlighted;
+        $user->save();
 
-		$userFavorite = new UserFavorite;
-		$userFavorite->from_user_id = $id;
-		$userFavorite->to_user_id = $favorite;
-		$userFavorite->save();
+        return json_encode("Hello");
+    }
 
-		$UserNotification = new UserNotification;
-		$UserNotification->user_id = $favorite;
-		$UserNotification->body = "Hey you! " .$user->first_name. " ".$user->last_name." tapped you";
-		$UserNotification->is_read = 0;
-		$UserNotification->save();
+    function favorite($favorite){
+        $user = Auth::user();
+        $id = $user->id;
 
-		$fav = UserFavorite::where('from_user_id', '=', $favorite)->where('from_user_id', '=', $favorite)->get()->toArray();
-		if($fav){
-			$UserConnection = new UserConnection;
-			$UserConnection->user1_id = $id;
-			$UserConnection->user2_id = $favorite;
-			$UserConnection->save();
+        $userFavorite = new UserFavorite;
+        $userFavorite->from_user_id = $id;
+        $userFavorite->to_user_id = $favorite;
+        $userFavorite->save();
 
-		$UserNotification = new UserNotification;
-		$UserNotification->user_id = $favorite;
-		$UserNotification->body = "you Found a match, " .$user->first_name. " ".$user->last_name." in your matches";
-		$UserNotification->is_read = 0;
-		$UserNotification->save();
+        $UserNotification = new UserNotification;
+        $UserNotification->user_id = $favorite;
+        $UserNotification->body = "Hey you! " . $user->first_name . " " . $user->last_name . " tapped you";
+        $UserNotification->is_read = 0;
+        $UserNotification->save();
 
-		$c_user = User::where('id', $favorite)->get()->toArray();
+        $fav = UserFavorite::where('from_user_id', '=', $favorite)->where('from_user_id', '=', $favorite)->get()->toArray();
+        if ($fav) {
+            $UserConnection = new UserConnection;
+            $UserConnection->user1_id = $id;
+            $UserConnection->user2_id = $favorite;
+            $UserConnection->save();
+
+            $UserNotification = new UserNotification;
+            $UserNotification->user_id = $favorite;
+            $UserNotification->body = "you Found a match, " . $user->first_name . " " . $user->last_name . " in your matches";
+            $UserNotification->is_read = 0;
+            $UserNotification->save();
+
+            $c_user = User::where('id', $favorite)->get()->toArray();
 
 
-		$UserNotification = new UserNotification;
-		$UserNotification->user_id = $id;
-		$UserNotification->body = "you Found a match, " .$c_user->first_name. " ".$c_user->last_name." in your matches";
-		$UserNotification->is_read = 0;
-		$UserNotification->save();
-		}
+            $UserNotification = new UserNotification;
+            $UserNotification->user_id = $id;
+            $UserNotification->body = "you Found a match, " . $c_user->first_name . " " . $c_user->last_name . " in your matches";
+            $UserNotification->is_read = 0;
+            $UserNotification->save();
+        }
 
-		
-		return json_encode("favorite");
-	}
+
+        return json_encode("favorite");
+    }
 
     function block($blocked){
         $user = Auth::user();
@@ -159,7 +160,7 @@ class UserController extends Controller{
         return json_encode("done");
     }
 
-    function editInfo($first_name, $last_name, $height, $weight, $net_worth, $currency, $bio ,$nationality, $email){
+    function editInfo($first_name, $last_name, $height, $weight, $net_worth, $currency, $bio, $nationality, $email){
         $user = Auth::user();
 
         $user->first_name = $first_name;
@@ -177,11 +178,60 @@ class UserController extends Controller{
     }
 
 
-	function test(){
-		$user = Auth::user();
-		$id = $user->id;
-		return json_encode($id);
-	}
+    function test(){
+        $user = Auth::user();
+        $id = $user->id;
+        return json_encode($id);
+    }
+
+    function sendMessage(Request $request, $receiverID){
+        $Message = new UserMessage;
+        $user = Auth::user();
+        $id = $user->id;
+
+        $Message->sender_id = $id;
+        $Message->receiver_id = $receiverID;
+        $Message->body = $request->body;
+        $Message->is_read = 0;
+        $Message->is_approved = 0;
+        $Message->save();
+    }
+
+    function getApprovedMessage(){
+        $user = Auth::user();
+        $id = $user->id;
+
+        $ApprovedMessaged = UserMessage::where("is_approved", 1)->where("receiver_id", $id)->orderBy('created_at', 'ASC')->get()->toArray();
+        return json_encode($ApprovedMessaged);
+
+    }
+
+    function getAppProfilePictures(){
+        $user = Auth::user();
+        $id = $user->id;
+
+        $ApprovedPictures = UserPicture::where("is_approved", 1)->where("is_profile_picture", 1)->where("user_id", $id)->get()->toArray();
+        return json_encode($ApprovedPictures);
+
+    }
+
+    function getAppOtherPictures(){
+        $user = Auth::user();
+        $id = $user->id;
+
+        $ApprovedPictures = UserPicture::where("is_approved", 1)->where("is_profile_picture", 0)->where("user_id", $id)->get()->toArray();
+        return json_encode($ApprovedPictures);
+
+    }
+
+    function getUserDetails(){
+        $user = Auth::user();
+        $id = $user->id;
+
+        $UserDetails = User::with(['Hobby', 'Interest', 'Pictures'])->where("id", $id)->get()->toArray();
+        return json_encode($UserDetails);
+
+    }
 
 }
 

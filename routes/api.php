@@ -32,6 +32,11 @@ Route::group(['middleware' => 'auth.jwt'], function () {
     Route::get('/appPic/{id}', [UserController::class, 'appPic'])->name('api:appPic');
     Route::get('/rejectPic/{id}', [UserController::class, 'rejectPic'])->name('api:rejectPic');
     Route::get('/readMsg/{id}', [UserController::class, 'readMsg'])->name('api:readMsg');
+    Route::post('/sendMessage/{id}', [UserController::class , 'sendMessage'])->name('api:sendMsg');
+    Route::get('/getAppMessage', [UserController::class , 'getApprovedMessage'])->name('api:getAppMsg');
+    Route::get('/getDetails', [UserController::class , 'getUserDetails'])->name('api:getUserDetails');
+    Route::get('/profilePic', [UserController::class , 'getAppProfilePictures'])->name('api:profilePic');
+    Route::get('/otherPic', [UserController::class , 'getAppOtherPictures'])->name('api:otherPic');
     Route::get('/makeHighlighted/{id}', [UserController::class, 'makeHighlighted'])->name('api:makeHighlighted');
     Route::get('/removeHighlighted/{id}', [UserController::class, 'removeHighlighted'])->name('api:removeHighlighted');
     Route::post('/editInfo/{first_name, last_name, height, weight, net_worth, currency, bio ,nationality, email}', [UserController::class, 'editInfo'])->name('api:editInfo');
