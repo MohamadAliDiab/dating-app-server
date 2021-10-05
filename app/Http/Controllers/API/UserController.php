@@ -10,12 +10,40 @@ use App\Models\UserConnection;
 use App\Models\UserMessage;
 use App\Models\UserNotification;
 use App\Models\UserPicture;
+use App\Models\UserHobby;
+use App\Models\UserInterest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 use Auth;
 
 class UserController extends Controller {
+
+    function index(){
+        return view("welcome");
+    }
+
+    function login(Request $request){
+        $data = $request->only("email", "password");
+
+        if(Auth::attempt($data)){
+            return redirect()->route("home");
+        }
+
+        return redirect()->route("index");
+
+    }
+
+    function home(){
+        $user = Auth::user();
+        dd($user);
+    }
+
+    function logout(){
+        Auth::logout();
+        return redirect()->route("index");
+
+    }
 
     function highlighted(){
         $highlighted_users = User::where("is_highlighted", 1)->limit(6)->get()->toArray();
@@ -227,7 +255,7 @@ class UserController extends Controller {
     function getUserDetails(){
         $user = Auth::user();
         $id = $user->id;
-
+    
         $UserDetails = User::with(['Hobby', 'Interest', 'Pictures'])->where("id", $id)->get()->toArray();
         return json_encode($UserDetails);
 
