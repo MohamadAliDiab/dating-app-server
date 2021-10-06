@@ -10,24 +10,27 @@ use JWTAuth;
 use Auth;
 
 
-class AuthController extends Controller{
-	
-	function login(Request $request){
+class AuthController extends Controller
+{
+
+	function login(Request $request)
+	{
 		$data = $request->only("email", "password");
 
-		try{
-			if(!$token = JWTAuth::attempt($data)){
-				return json_encode(["error" => "Invalid Credentials"]);
+		try {
+			if (!$token = JWTAuth::attempt($data)) {
+				throw ("error :Invalid Credentials");
 			}
-		}catch(JWTException $e){
-			return json_encode(["error" => "Error occured"]);
 		}
-		
+		catch (JWTException $e) {
+			throw ("error :" . $e);
+		}
+
 		$user = Auth::user();
 		$user->token = $token;
 		return json_encode($user);
-		
-		
+
+
 	}
 
 }

@@ -17,16 +17,19 @@ use Illuminate\Support\Facades\Hash;
 
 use Auth;
 
-class UserController extends Controller {
+class UserController extends Controller
+{
 
-    function index(){
+    function index()
+    {
         return view("welcome");
     }
 
-    function login(Request $request){
+    function login(Request $request)
+    {
         $data = $request->only("email", "password");
 
-        if(Auth::attempt($data)){
+        if (Auth::attempt($data)) {
             return redirect()->route("home");
         }
 
@@ -34,51 +37,57 @@ class UserController extends Controller {
 
     }
 
-    function home(){
+    function home()
+    {
         $user = Auth::user();
         dd($user);
     }
 
-    function logout(){
+    function logout()
+    {
         Auth::logout();
         return redirect()->route("index");
 
     }
 
-    function highlighted(){
+    function highlighted()
+    {
         $highlighted_users = User::where("is_highlighted", 1)->limit(6)->get()->toArray();
         return json_encode($highlighted_users);
     }
 
-    function interest(){
+    function interest()
+    {
         $user = Auth::user();
         $usersInterest = User::where("gender", $user->interested_in)->get()->toArray();
         return json_encode($usersInterest);
     }
 
-    function register(Request $request){
+    function register(Request $request)
+    {
         $user = new User;
-        $user->user_type_id = $request->user_type_id;
+        $user->user_type_id = 3;
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->gender = $request->gender;
         $user->interested_in = $request->interested_in;
-        $user->dob = $request->dob;
-        $user->height = $request->height;
-        $user->weight = $request->weight;
-        $user->nationality = $request->nationality;
-        $user->net_worth = $request->net_worth;
-        $user->currency = $request->currency;
-        $user->bio = $request->bio;
-        $user->is_highlighted = $request->is_highlighted;
+        //$user->dob = $request->dob;
+        //$user->height = $request->height;
+        //$user->weight = $request->weight;
+        //$user->nationality = $request->nationality;
+        //$user->net_worth = $request->net_worth;
+        //$user->currency = $request->currency;
+        //$user->bio = $request->bio;
+        $user->is_highlighted = 0;
         $user->save();
 
         return json_encode("Hello");
     }
 
-    function favorite($favorite){
+    function favorite($favorite)
+    {
         $user = Auth::user();
         $id = $user->id;
 
@@ -120,7 +129,8 @@ class UserController extends Controller {
         return json_encode("favorite");
     }
 
-    function block($blocked){
+    function block($blocked)
+    {
         $user = Auth::user();
         $id = $user->id;
 
@@ -132,7 +142,8 @@ class UserController extends Controller {
 
     }
 
-    function appPic($pic){
+    function appPic($pic)
+    {
 
         $userPic = UserPicture::where('id', '=', $pic);
         $userPic->is_approved = true;
@@ -140,7 +151,8 @@ class UserController extends Controller {
         return json_encode("done");
     }
 
-    function rejectPic($pic){
+    function rejectPic($pic)
+    {
 
         $userPic = UserPicture::where('id', '=', $pic);
         $userPic->is_approved = false;
@@ -148,7 +160,8 @@ class UserController extends Controller {
         return json_encode("done");
     }
 
-    function appMsg($msg){
+    function appMsg($msg)
+    {
 
         $userMessage = UserMessage::where('id', '=', $msg);
         $userMessage->is_approved = true;
@@ -156,7 +169,8 @@ class UserController extends Controller {
         return json_encode("done");
     }
 
-    function rejectMsg($msg){
+    function rejectMsg($msg)
+    {
 
         $userMessage = UserMessage::where('id', '=', $msg);
         $userMessage->is_approved = false;
@@ -164,7 +178,8 @@ class UserController extends Controller {
         return json_encode("done");
     }
 
-    function readMsg($msg){
+    function readMsg($msg)
+    {
 
         $userMessage = UserMessage::where('id', '=', $msg);
         $userMessage->is_read = true;
@@ -172,7 +187,8 @@ class UserController extends Controller {
         return json_encode("done");
     }
 
-    function makeHighlighted($id){
+    function makeHighlighted($id)
+    {
 
         $user = User::where("id", '=', $id);
         $user->is_highlighted = 1;
@@ -180,7 +196,8 @@ class UserController extends Controller {
         return json_encode("done");
     }
 
-    function removeHighlighted($id){
+    function removeHighlighted($id)
+    {
 
         $user = User::where("id", '=', $id);
         $user->is_highlighted = 0;
@@ -188,7 +205,8 @@ class UserController extends Controller {
         return json_encode("done");
     }
 
-    function editInfo($first_name, $last_name, $height, $weight, $net_worth, $currency, $bio, $nationality, $email){
+    function editInfo($first_name, $last_name, $height, $weight, $net_worth, $currency, $bio, $nationality, $email)
+    {
         $user = Auth::user();
 
         $user->first_name = $first_name;
@@ -206,13 +224,15 @@ class UserController extends Controller {
     }
 
 
-    function test(){
+    function test()
+    {
         $user = Auth::user();
         $id = $user->id;
         return json_encode($id);
     }
 
-    function sendMessage(Request $request, $receiverID){
+    function sendMessage(Request $request, $receiverID)
+    {
         $Message = new UserMessage;
         $user = Auth::user();
         $id = $user->id;
@@ -225,7 +245,8 @@ class UserController extends Controller {
         $Message->save();
     }
 
-    function getApprovedMessage(){
+    function getApprovedMessage()
+    {
         $user = Auth::user();
         $id = $user->id;
 
@@ -234,7 +255,8 @@ class UserController extends Controller {
 
     }
 
-    function getAppProfilePictures(){
+    function getAppProfilePictures()
+    {
         $user = Auth::user();
         $id = $user->id;
 
@@ -243,7 +265,8 @@ class UserController extends Controller {
 
     }
 
-    function getAppOtherPictures(){
+    function getAppOtherPictures()
+    {
         $user = Auth::user();
         $id = $user->id;
 
@@ -252,10 +275,11 @@ class UserController extends Controller {
 
     }
 
-    function getUserDetails(){
+    function getUserDetails()
+    {
         $user = Auth::user();
         $id = $user->id;
-    
+
         $UserDetails = User::with(['Hobby', 'Interest', 'Pictures'])->where("id", $id)->get()->toArray();
         return json_encode($UserDetails);
 
