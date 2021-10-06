@@ -15,8 +15,10 @@ use App\Http\Controllers\API\UserController;
 |
 */
 
-//Route::any('/logout', [UserController::class, "logout"])->name("logout");
-//Route::get('/home', [UserController::class, "home"])->name("home");
+Route::get('/logout', [UserController::class, "logout"])->name("logout");
+Route::get('/home', [UserController::class, "home"])->name("home");
 Route::post('/login', [AuthController::class, "login"])->name("login");
 Route::get('/', [UserController::class, "index"])->name("index");
-Route::get('/home', [UserController::class, "home"])->name("home");
+
+
+

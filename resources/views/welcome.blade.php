@@ -36,7 +36,7 @@
             <div class="header-wrapper">
                 <div class="container col-md-12 text-center w-50 p-3">
                     <a href="">
-                        <img src="{{asset('assets/logo/logo.png')}}" alt="logo" class="logo">
+                        <img src="{{asset('assets/logo/logo.png')}}" alt="logo">
                     </a>
                 </div>
             </div>
@@ -50,14 +50,12 @@
     <div class=" container mt-5">
         <div class="account-wrapper">
             <h3 class="title">Admin Login</h3>
-            <form class="account-form" method="POST" action="/login">
+            <form class="account-form" method="POST" action="login">
                 <div class="form-group">
-{{--                    {{Form::open(['route' => ['login'], 'method' => 'post'])}}--}}
                     @csrf
                     <input required name="email" placeholder="Email" type="email"/>
                     <input required name="password" placeholder="Password" type="password"/>
                     <button type="submit" class="d-block lab-btn"><span>Login</span></button>
-{{--                    {{Form::close()}}--}}
                 </div>
             </form>
         </div>

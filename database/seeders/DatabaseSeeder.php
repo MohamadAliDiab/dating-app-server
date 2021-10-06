@@ -13,25 +13,25 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
     public function run(){
-       
+
 		DB::table("user_types")->insert([
 			"name" => "super_admin",
 			"created_at" => date("Y-m-d"),
 			"updated_at" => date("Y-m-d")
 		]);
-		
+
 		DB::table("user_types")->insert([
 			"name" => "admin",
 			"created_at" => date("Y-m-d"),
 			"updated_at" => date("Y-m-d")
 		]);
-	   
+
 		DB::table("user_types")->insert([
 			"name" => "user",
 			"created_at" => date("Y-m-d"),
 			"updated_at" => date("Y-m-d")
 		]);
-	   
+
 	   DB::table("users")->insert([
 			"user_type_id" => 3,
 			"first_name" => "Nabih",
@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
 			"bio" => "Hello !",
 			"is_highlighted" => 1,
 	   ]);
-	   
+
 		DB::table("users")->insert([
 			"user_type_id" => 3,
 			"first_name" => "Nabiha",
@@ -67,7 +67,7 @@ class DatabaseSeeder extends Seeder
 			"bio" => "Hey ! I need a sugar daddy *.* ",
 			"is_highlighted" => 1,
 	   ]);
-	   
+
 		DB::table("users")->insert([
 			"user_type_id" => 3,
 			"first_name" => "Nabiha",
@@ -103,6 +103,23 @@ class DatabaseSeeder extends Seeder
 		"bio" => "Hey ! I need a sugar daddy *.* ",
 		"is_highlighted" => 1,
    ]);
+        DB::table("users")->insert([
+            "user_type_id" => 2,
+            "first_name" => "Mohamad Ali",
+            "last_name" => "Diab",
+            "email" => "mohamadalidiab23@gmail.com",
+            "password" => bcrypt("password123"),
+            "gender" => 0,
+            "interested_in" => 1,
+            "dob" => "1998-11-23",
+            "height" => "183",
+            "weight" => "78",
+            "nationality" => "lebanese",
+            "net_worth" => "100000",
+            "currency" => "LBP",
+            "bio" => "Hey ! I need a sugar Mommy or Daddy, I am desperate *.* ",
+            "is_highlighted" => 1,
+        ]);
 	   
     }
 }

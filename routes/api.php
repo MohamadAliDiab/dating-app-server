@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\AuthController;
-
+use App\Http\Controllers\API\adminController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -22,6 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/highlighted', [UserController::class, 'highlighted'])->name('api:highlighted');
 Route::post('/login', [AuthController::class, 'login'])->name('api:login');
 Route::post('register', [UserController::class, 'register'])->name('api:register');
+Route::get('/getUsers', [adminController::class, 'getUsers'])->name('api:getUsers');
 
 Route::group(['middleware' => 'auth.jwt'], function () {
 	Route::get('/search/{keyword}', [UserController::class, 'search'])->name('api:search');

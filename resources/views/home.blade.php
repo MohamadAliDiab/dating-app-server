@@ -7,7 +7,6 @@
     <!-- Other css -->
     <link rel="stylesheet" href="{{asset('assets/css/animate.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/icofont.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/swiper.css')}}">
 
@@ -38,7 +37,7 @@
                     </a>
                 </div>
                 <div class="menu-area">
-                    <a href="{{route('api:logout')}}" class="signup"><i class="icofont-users"></i> <span>LOG OUT</span> </a>
+                    <a href="{{route('api:logout')}}" class="signup"><span>LOG OUT</span> </a>
 
                     <!-- toggle icons -->
                     <div class="header-bar d-lg-none">
@@ -46,15 +45,37 @@
                         <span></span>
                         <span></span>
                     </div>
-                    <div class="ellepsis-bar d-lg-none">
-                        <i class="icofont-info-square"></i>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 </header>
 <!-- ==========Header Section Ends Here========== -->
+
+<!-- ================ Highlighting user Section starts here =============== -->
+<section class="top-member-section padding-tb">
+    <div class="container">
+        <div class="section-header">
+            <h2>List of users</h2>
+        </div>
+        <div class="section-wrapper" id="users">
+            <div class="grid-memberlist" style="position: relative; height: 650.4px;">
+                <div class="grid-member filter-item girl" style="position: absolute; left: 0px; top: 0px;">
+                    <div class="lab-item member-item style-1 style-2">
+                        <div class="lab-inner">
+                            <div class="lab-content">
+                                <h6><a href="">Johanna</a> </h6>
+                                <button type="button" class="btn btn-success">Add to list of Highlighted</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ================ Highlighting user Section starts here =============== -->
 
 <!-- ================ Approving Pictures starts here=============== -->
 <section class="member-section padding-tb">
@@ -68,7 +89,7 @@
                     <div class="lab-item member-item style-1">
                         <div class="lab-inner">
                             <div class="lab-thumb">
-                                <img src="login_data/01_004.jpg" alt="member-img">
+                                <img src="" alt="member-img">
                             </div>
                             <div class="lab-content">
                                 <h6><a href="">Andrea Guido</a> </h6>
@@ -82,7 +103,7 @@
                     <div class="lab-item member-item style-1">
                         <div class="lab-inner">
                             <div class="lab-thumb">
-                                <img src="login_data/02_004.jpg" alt="member-img">
+                                <img src="" alt="member-img">
                             </div>
                             <div class="lab-content">
                                 <h6><a href="">Gihan-Fernando</a></h6>
@@ -96,7 +117,7 @@
                     <div class="lab-item member-item style-1">
                         <div class="lab-inner">
                             <div class="lab-thumb">
-                                <img src="login_data/03_003.jpg" alt="member-img">
+                                <img src="" alt="member-img">
                             </div>
                             <div class="lab-content">
                                 <h6><a href="">Sweet Admin</a></h6>
@@ -110,7 +131,7 @@
                     <div class="lab-item member-item style-1">
                         <div class="lab-inner">
                             <div class="lab-thumb">
-                                <img src="login_data/04_002.jpg" alt="member-img">
+                                <img src="" alt="member-img">
                             </div>
                             <div class="lab-content">
                                 <h6><a href="">Gyan-Baffour</a></h6>
@@ -124,7 +145,7 @@
                     <div class="lab-item member-item style-1">
                         <div class="lab-inner">
                             <div class="lab-thumb">
-                                <img src="login_data/05.jpg" alt="member-img">
+                                <img src="" alt="member-img">
                             </div>
                             <div class="lab-content">
                                 <h6><a href="">Teszt Eleking</a></h6>
@@ -138,7 +159,7 @@
                     <div class="lab-item member-item style-1">
                         <div class="lab-inner">
                             <div class="lab-thumb">
-                                <img src="login_data/06.jpg" alt="member-img">
+                                <img src="" alt="member-img">
                             </div>
                             <div class="lab-content">
                                 <h6><a href="">Zeahra Guido</a>
@@ -155,150 +176,6 @@
 </section>
 <!-- ================ Approving Pictures ends here =============== -->
 
-
-<!-- ================ Highlighting user Section starts here =============== -->
-<section class="top-member-section padding-tb">
-    <div class="container">
-        <div class="section-header">
-            <h2>List of users</h2>
-        </div>
-        <div class="section-wrapper">
-            <div class="grid-memberlist" style="position: relative; height: 650.4px;">
-                <div class="grid-member filter-item girl" style="position: absolute; left: 0px; top: 0px;">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="login_data/01_004.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="">Johanna</a> </h6>
-                                <button type="button" class="btn btn-success">Add to list of Highlighted</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid-member filter-item girl" style="position: absolute; left: 235.2px; top: 0px;">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="login_data/03_003.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="">Selinae</a> </h6>
-                                <button type="button" class="btn btn-success">Add to list of Highlighted</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid-member filter-item boy" style="position: absolute; left: 470.4px; top: 0px;">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="login_data/02_004.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="">Andrea Guido</a> </h6>
-                                <button type="button" class="btn btn-danger">Remove from list of highlighted</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid-member filter-item boy" style="position: absolute; left: 705.6px; top: 0px;">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="login_data/04_002.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="">Rocky deo</a> </h6>
-                                <button type="button" class="btn btn-danger">Remove from list of highlighted</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid-member filter-item girl" style="position: absolute; left: 940.8px; top: 0px;">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="login_data/05.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="">Jhon doe</a> </h6>
-                                <button type="button" class="btn btn-success">Add to list of Highlighted</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid-member filter-item boy" style="position: absolute; left: 0px; top: 325.2px;">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="login_data/06.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="">Angelina</a> </h6>
-                                <button type="button" class="btn btn-success">Add to list of Highlighted</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid-member filter-item girl" style="position: absolute; left: 235.2px; top: 325.2px;">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="login_data/07.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="">Andrea Guido</a> </h6>
-                                <button type="button" class="btn btn-danger">Remove from list of highlighted</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid-member filter-item boy" style="position: absolute; left: 470.4px; top: 325.2px;">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="login_data/08.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="">Jene Aiko</a> </h6>
-                                <button type="button" class="btn btn-danger">Remove from list of highlighted</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid-member filter-item girl" style="position: absolute; left: 705.6px; top: 325.2px;">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="login_data/09.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="">Anna haek</a> </h6>
-                                <button type="button" class="btn btn-success">Add to list of Highlighted</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid-member filter-item boy" style="position: absolute; left: 940.8px; top: 325.2px;">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="login_data/10.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="">Andrean Puido</a> </h6>
-                                <button type="button" class="btn btn-success">Add to list of Highlighted</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- ================ Highlighting user Section starts here =============== -->
 
 
 <!-- ================ Messages approval Section Start Here =============== -->
@@ -380,6 +257,6 @@
 <script src="{{asset('assets/js/waypoints.js')}}"></script>
 <script src="{{asset('assets/js/wow.js')}}"></script>
 <script src="{{asset('assets/js/script.js')}}"></script>
-
+<script src="{{asset('assets/js/jquery.min.js')}}"></script>
 
 </body></html>
