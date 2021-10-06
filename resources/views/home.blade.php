@@ -379,6 +379,7 @@
 <script src="{{asset('assets/js/swiper.js')}}"></script>
 <script src="{{asset('assets/js/waypoints.js')}}"></script>
 <script src="{{asset('assets/js/wow.js')}}"></script>
+<script src="{{asset('assets/js/script.js')}}"></script>
 
 
 </body></html>

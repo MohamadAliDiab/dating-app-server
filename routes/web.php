@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\http\controllers\API\AuthController;
+use App\Http\Controllers\API\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,12 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/home', function () {
-    return view('home');
-});
-Route::post('/logout', function () {
-    return view('welcome');
-});
+//Route::any('/logout', [UserController::class, "logout"])->name("logout");
+//Route::get('/home', [UserController::class, "home"])->name("home");
+Route::post('/login', [AuthController::class, "login"])->name("login");
+Route::get('/', [UserController::class, "index"])->name("index");
+Route::get('/home', [UserController::class, "home"])->name("home");

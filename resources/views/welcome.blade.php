@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en">
+<head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,7 +36,7 @@
             <div class="header-wrapper">
                 <div class="container col-md-12 text-center w-50 p-3">
                     <a href="">
-                        <img src="{{asset('assets/logo/logo.png')}}" alt="logo">
+                        <img src="{{asset('assets/logo/logo.png')}}" alt="logo" class="logo">
                     </a>
                 </div>
             </div>
@@ -49,28 +50,20 @@
     <div class=" container mt-5">
         <div class="account-wrapper">
             <h3 class="title">Admin Login</h3>
-            <form class="account-form">
+            <form class="account-form" method="POST" action="/login">
                 <div class="form-group">
-                    <input required type="text" placeholder="Email" name="email">
-                </div>
-                <div class="form-group">
-                    <input required type="password" placeholder="Password" name="password">
-                </div>
-                <div class="form-group">
-                    <button class="d-block lab-btn"><span>Login</span></button>
+{{--                    {{Form::open(['route' => ['login'], 'method' => 'post'])}}--}}
+                    @csrf
+                    <input required name="email" placeholder="Email" type="email"/>
+                    <input required name="password" placeholder="Password" type="password"/>
+                    <button type="submit" class="d-block lab-btn"><span>Login</span></button>
+{{--                    {{Form::close()}}--}}
                 </div>
             </form>
         </div>
     </div>
 </div>
 <!-- ==========Login Section ends Here========== -->
-
-
-
-<!-- scrollToTop start here -->
-<a href="#" class="scrollToTop"><i class="icofont-rounded-up"></i></a>
-<!-- scrollToTop ending here -->
-
 
 
 <!-- All Scripts -->
@@ -84,4 +77,5 @@
 <script src="{{asset('assets/js/wow.js')}}"></script>
 
 
-</body></html>
+</body>
+</html>

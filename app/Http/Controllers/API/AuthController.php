@@ -25,9 +25,11 @@ class AuthController extends Controller{
 		
 		$user = Auth::user();
 		$user->token = $token;
-		return json_encode($user);
-		
-		
+        if($user->user_type_id == 3) {
+            return redirect()->route("index");
+        }else {
+            return redirect()->route("home");
+        }
 	}
 
 }

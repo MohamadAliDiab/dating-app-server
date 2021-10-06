@@ -23,20 +23,8 @@ class UserController extends Controller {
         return view("welcome");
     }
 
-    function login(Request $request){
-        $data = $request->only("email", "password");
-
-        if(Auth::attempt($data)){
-            return redirect()->route("home");
-        }
-
-        return redirect()->route("index");
-
-    }
-
     function home(){
-        $user = Auth::user();
-        dd($user);
+        return view("home");
     }
 
     function logout(){
@@ -44,6 +32,7 @@ class UserController extends Controller {
         return redirect()->route("index");
 
     }
+
 
     function highlighted(){
         $highlighted_users = User::where("is_highlighted", 1)->limit(6)->get()->toArray();
