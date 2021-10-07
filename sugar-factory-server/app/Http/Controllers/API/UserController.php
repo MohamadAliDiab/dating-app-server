@@ -86,17 +86,16 @@ class UserController extends Controller
         return json_encode("Hello");
     }
 
-	function search(Request $request)
+    function search(Request $request)
     {
-	$name=$request->first_name;
-        $result = User::where('first_name', 'LIKE', '%'. $name. '%')->orwhere('last_name', 'LIKE', '%'. $name. '%')->get();
-        if(count($result)){
-         return Response()->json($result);
+        $name = $request->first_name;
+        $result = User::where('first_name', 'LIKE', '%' . $name . '%')->orwhere('last_name', 'LIKE', '%' . $name . '%')->get();
+        if (count($result)) {
+            return Response()->json($result);
         }
-        else
-        {
-        return response()->json(['Result' => 'No Data not found'], 404);
-      }
+        else {
+            return response()->json(['Result' => 'No Data not found'], 404);
+        }
     }
 
 
@@ -121,31 +120,31 @@ class UserController extends Controller
             $UserConnection->user1_id = $id;
             $UserConnection->user2_id = $favorite;
             $UserConnection->save();
-			
-			
+
+
             $UserNotification = new UserNotification;
             $UserNotification->user_id = $favorite;
             $UserNotification->body = "you Found a match, " . $user->first_name . " " . $user->last_name . " in your matches";
             $UserNotification->is_read = 0;
             $UserNotification->save();
             $c_user = User::where('id', $favorite)->get();
-			
+
             $UserNotification = new UserNotification;
             $UserNotification->user_id = $id;
             $UserNotification->body = "you Found a match, " . $c_user[0]->first_name . " " . $c_user[0]->last_name . " in your matches";
             $UserNotification->is_read = 0;
             $UserNotification->save();
-			
-			$user=UserFavorite::where('from_user_id', '=', $favorite);
-			$user->delete(); //returns true/false
-			$user=UserFavorite::where('from_user_id', '=', $id);
-			$user->delete(); //returns true/false
+
+            $user = UserFavorite::where('from_user_id', '=', $favorite);
+            $user->delete(); //returns true/false
+            $user = UserFavorite::where('from_user_id', '=', $id);
+            $user->delete(); //returns true/false
         }
         return json_encode("favorite");
     }
 
 
-    function block ($blocked)
+    function block($blocked)
     {
         $user = Auth::user();
         $id = $user->id;
@@ -185,10 +184,18 @@ class UserController extends Controller
         return json_encode("done");
     }
 
+    function GetNotifications()
+    {
+        $user = Auth::user();
+        $id = $user->id;
+        $userNotifications = UserNotification::where('user_id', '=', $id)->get();
+        return json_encode($userNotifications);
+    }
+
     function rejectMsg($msg)
     {
 
-        $userMessage = UserMessage::where('id', '=', $msg);
+        $userMessage = UserMessage::where('user_id', '=', $msg);
         $userMessage->is_approved = false;
         $userMessage->save();
         return json_encode("done");
@@ -224,8 +231,8 @@ class UserController extends Controller
     function editInfo(Request $request)
     {
         $user = Auth::user();
-		
-	$user->height = $request->height;
+
+        $user->height = $request->height;
         $user->weight = $request->weight;
         $user->nationality = $request->nationality;
         $user->net_worth = $request->net_worth;
@@ -296,33 +303,34 @@ class UserController extends Controller
         return json_encode($UserDetails);
 
     }
-
-function ifavorite()
-    {	$users= [];
+    function ifavorite()
+    {
+        $users = [];
         $user = Auth::user();
         $favorite = userFavorite::where("from_user_id", $user->id)->get();
-		foreach ($favorite as $fav) {
-			$fav_users = User::where("id", $fav->id)->get();
-				$users[] = $fav_users;
-				
-		}
-		
+        foreach ($favorite as $fav) {
+            $fav_users = User::where("id", $fav->to_user_id)->get();
+            $users[] = $fav_users;
+
+        }
+
         return json_encode($users);
     }
-	 
 
-	function getfavorite(){
-		$users= [];
+
+    function getfavorite()
+    {
+        $users = [];
         $user = Auth::user();
-        $favorite = userFavorite::select("id")->where("to_user_id", $user->id)->get();
-		foreach ($favorite as $fav) {
-			$fav_users = User::where("id", $fav->id)->get();
-				$users[] = $fav_users;
-				
-		}
-		
+        $favorite = userFavorite::where("to_user_id", $user->id)->get();
+        foreach ($favorite as $fav) {
+            $fav_users = User::where("id", $fav->from_user_id)->get();
+            $users[] = $fav_users;
+
+        }
+
         return json_encode($users);
-		
+
     }
 
 
