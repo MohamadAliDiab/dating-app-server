@@ -19,6 +19,6 @@ Route::get('/logout', [UserController::class, "logout"])->name("logout");
 Route::get('/home', [UserController::class, "home"])->name("home");
 Route::post('/login', [AuthController::class, "login"])->name("login");
 Route::get('/', [UserController::class, "index"])->name("index");
-
-
+Route::get('/pics', [UserController::class, "appPics"])->name("appPics");
+Route::get('/msgs', [UserController::class, "msgs"])->name("msgs");
 

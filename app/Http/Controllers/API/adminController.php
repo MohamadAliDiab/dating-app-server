@@ -20,7 +20,7 @@ class adminController extends Controller {
 
     function getUsers(){
 
-        $userInfo = User::with("id" ,"first_name" , "last_name", "bio", "is_highlighted")->get()->toArray();
+        $userInfo = User::get()->toArray();
         return json_encode($userInfo);
 
     }

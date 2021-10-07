@@ -24,8 +24,6 @@
     </div>
 </div>
 <!-- preloader ending here -->
-
-
 <!-- ==========Header Section Starts Here========== -->
 <header class="header-section">
     <div class="header-bottom">
@@ -54,31 +52,6 @@
     </div>
 </header>
 <!-- ==========Header Section Ends Here========== -->
-
-<!-- ================ Highlighting user Section starts here =============== -->
-<section class="top-member-section padding-tb">
-    <div class="container">
-        <div class="section-header">
-            <h2>List of users</h2>
-        </div>
-        <div class="section-wrapper" id="setStatus">
-            <div class="grid-memberlist" style="position: relative; height: 650.4px;">
-                <div class="grid-member filter-item girl" style="position: absolute; left: 0px; top: 0px;">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-content">
-                                <h6><a href="">Johanna</a> </h6>
-                                <button type="button" class="btn btn-success">Add to list of Highlighted</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</section>
-<!-- ================ Highlighting user Section starts here =============== -->
 
 <!-- ================ Approving Pictures starts here=============== -->
 <section class="member-section padding-tb">
@@ -178,76 +151,6 @@
     </div>
 </section>
 <!-- ================ Approving Pictures ends here =============== -->
-
-
-
-<!-- ================ Messages approval Section Start Here =============== -->
-<section class="group-section padding-tb bg-img">
-    <div class="container">
-        <div class="section-header">
-            <h2>Recently sent messages</h2>
-        </div>
-        <div class="section-wrapper">
-            <div class="row g-4">
-                <div class="col-xl-6 col-12">
-                    <div class="group-item lab-item">
-                        <div class="lab-inner d-flex flex-wrap align-items-center p-4">
-                            <div class="lab-content">
-                                <h4>From: user</h4>
-                                <h4>To: user</h4>
-                                <p>message content</p>
-                                <button type="button" class="btn btn-success">Approve msg</button>
-                                <button type="button" class="btn btn-danger mt-2">Reject msg</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-12">
-                    <div class="group-item lab-item">
-                        <div class="lab-inner d-flex flex-wrap align-items-center p-4">
-                            <div class="lab-content">
-                                <div class="lab-content">
-                                    <h4>From: user</h4>
-                                    <h4>To: user</h4>
-                                    <p>message content</p>
-                                    <button type="button" class="btn btn-success">Approve msg</button>
-                                    <button type="button" class="btn btn-danger mt-2">Reject msg</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-12">
-                    <div class="group-item lab-item">
-                        <div class="lab-inner d-flex flex-wrap align-items-center p-4">
-                            <div class="lab-content">
-                                <h4>From: user</h4>
-                                <h4>To: user</h4>
-                                <p>message content</p>
-                                <button type="button" class="btn btn-success">Approve msg</button>
-                                <button type="button" class="btn btn-danger mt-2">Reject msg</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-12">
-                    <div class="group-item lab-item">
-                        <div class="lab-inner d-flex flex-wrap align-items-center p-4">
-                            <div class="lab-content">
-                                <h4>From: user</h4>
-                                <h4>To: user</h4>
-                                <p>message content</p>
-                                <button type="button" class="btn btn-success">Approve msg</button>
-                                <button type="button" class="btn btn-danger mt-2">Reject msg</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- ================ Messages approval Section Start Here =============== -->
 
 
 <!-- All Scripts -->

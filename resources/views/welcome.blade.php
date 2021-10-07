@@ -35,9 +35,6 @@
         <div class="container">
             <div class="header-wrapper">
                 <div class="container col-md-12 text-center w-50 p-3">
-                    <a href="">
-                        <img src="{{asset('assets/logo/logo.png')}}" alt="logo">
-                    </a>
                 </div>
             </div>
         </div>

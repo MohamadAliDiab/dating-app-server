@@ -22,9 +22,16 @@ class UserController extends Controller {
     function index(){
         return view("welcome");
     }
+    function appPics(){
+        return view("appPics");
+    }
 
     function home(){
         return view("home");
+    }
+
+    function msgs(){
+        return view("msgs");
     }
 
     function logout(){
