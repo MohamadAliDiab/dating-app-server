@@ -23,6 +23,12 @@ Route::get('/highlighted', [UserController::class, 'highlighted'])->name('api:hi
 Route::post('/login', [AuthController::class, 'login'])->name('api:login');
 Route::post('register', [UserController::class, 'register'])->name('api:register');
 Route::get('/getUsers', [adminController::class, 'getUsers'])->name('api:getUsers');
+Route::get('/appMsg/{id}', [UserController::class, 'appMsg'])->name('api:appMsg');
+Route::get('/rejectMsg/{id}', [UserController::class, 'rejectMsg'])->name('api:rejectMsg');
+Route::get('/appPic/{id}', [UserController::class, 'appPic'])->name('api:appPic');
+Route::get('/rejectPic/{id}', [UserController::class, 'rejectPic'])->name('api:rejectPic');
+Route::get('/makeHighlighted/{id}', [UserController::class, 'makeHighlighted'])->name('api:makeHighlighted');
+Route::get('/removeHighlighted/{id}', [UserController::class, 'removeHighlighted'])->name('api:removeHighlighted');
 
 Route::group(['middleware' => 'auth.jwt'], function () {
 	Route::get('/search/{keyword}', [UserController::class, 'search'])->name('api:search');
@@ -31,17 +37,11 @@ Route::group(['middleware' => 'auth.jwt'], function () {
 	Route::get('/interest', [UserController::class, 'interest'])->name('api:interest');
 	Route::get('/favorite/{id}', [UserController::class, 'favorite'])->name('api:favorite');
     Route::get('/block/{id}', [UserController::class, 'block'])->name('api:block');
-    Route::get('/appMsg/{id}', [UserController::class, 'appMsg'])->name('api:appMsg');
-    Route::get('/rejectMsg/{id}', [UserController::class, 'rejectMsg'])->name('api:rejectMsg');
-    Route::get('/appPic/{id}', [UserController::class, 'appPic'])->name('api:appPic');
-    Route::get('/rejectPic/{id}', [UserController::class, 'rejectPic'])->name('api:rejectPic');
     Route::get('/readMsg/{id}', [UserController::class, 'readMsg'])->name('api:readMsg');
     Route::post('/sendMessage/{id}', [UserController::class , 'sendMessage'])->name('api:sendMsg');
     Route::get('/getAppMessage', [UserController::class , 'getApprovedMessage'])->name('api:getAppMsg');
     Route::get('/getDetails', [UserController::class , 'getUserDetails'])->name('api:getUserDetails');
     Route::get('/profilePic', [UserController::class , 'getAppProfilePictures'])->name('api:profilePic');
     Route::get('/otherPic', [UserController::class , 'getAppOtherPictures'])->name('api:otherPic');
-    Route::get('/makeHighlighted/{id}', [UserController::class, 'makeHighlighted'])->name('api:makeHighlighted');
-    Route::get('/removeHighlighted/{id}', [UserController::class, 'removeHighlighted'])->name('api:removeHighlighted');
     Route::post('/editInfo/{first_name, last_name, height, weight, net_worth, currency, bio ,nationality, email}', [UserController::class, 'editInfo'])->name('api:editInfo');
 });

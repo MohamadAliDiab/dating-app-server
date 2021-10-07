@@ -130,47 +130,47 @@ class UserController extends Controller {
 
     function appPic($pic){
 
-        $userPic = UserPicture::where('id', '=', $pic);
-        $userPic->is_approved = true;
+        $userPic = UserPicture::where('id', '=', $pic)->first();
+        $userPic->is_approved = 1;
         $userPic->save();
         return json_encode("done");
     }
 
     function rejectPic($pic){
 
-        $userPic = UserPicture::where('id', '=', $pic);
-        $userPic->is_approved = false;
+        $userPic = UserPicture::where('id', '=', $pic)->first();
+        $userPic->is_approved = 0;
         $userPic->save();
         return json_encode("done");
     }
 
     function appMsg($msg){
 
-        $userMessage = UserMessage::where('id', '=', $msg);
-        $userMessage->is_approved = true;
+        $userMessage = UserMessage::where('id', '=', $msg)->first();
+        $userMessage->is_approved = 1;
         $userMessage->save();
         return json_encode("done");
     }
 
     function rejectMsg($msg){
 
-        $userMessage = UserMessage::where('id', '=', $msg);
-        $userMessage->is_approved = false;
+        $userMessage = UserMessage::where('id', '=', $msg)->first();
+        $userMessage->is_approved = 0;
         $userMessage->save();
         return json_encode("done");
     }
 
     function readMsg($msg){
 
-        $userMessage = UserMessage::where('id', '=', $msg);
-        $userMessage->is_read = true;
+        $userMessage = UserMessage::where('id', '=', $msg)->first();
+        $userMessage->is_read = 1;
         $userMessage->save();
         return json_encode("done");
     }
 
     function makeHighlighted($id){
 
-        $user = User::where("id", '=', $id);
+        $user = User::where("id", '=', $id)->first();
         $user->is_highlighted = 1;
         $user->save();
         return json_encode("done");
@@ -178,7 +178,7 @@ class UserController extends Controller {
 
     function removeHighlighted($id){
 
-        $user = User::where("id", '=', $id);
+        $user = User::where("id", '=', $id)->first();
         $user->is_highlighted = 0;
         $user->save();
         return json_encode("done");
