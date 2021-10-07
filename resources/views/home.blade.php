@@ -33,14 +33,20 @@
             <div class="header-wrapper">
                 <div class="logo">
                 </div>
-                <a href="messages.blade.php" class="navbar-right">
-                    <i class="material-icons" style="font-size:36px">message</i>
-                </a>
-                <a href="appPics.blade.php" class="col-md-2">
-                    <i class="material-icons" style="font-size:36px">photo</i>
-                </a>
-                <div class="menu-area">
-                    <a href="{{route('logout')}}" class="signup"><span>LOG OUT</span> </a>
+                <div class="menu-area col-lg-4">
+                    <div class="col-lg-8">
+                        <a href="http://127.0.0.1:8000/home" class="ps-5" >
+                            <i class="material-icons" style="font-size:36px">home</i>
+                        </a>
+                        <a href="http://127.0.0.1:8000/messages" class="ps-5">
+                            <i class="material-icons" style="font-size:36px">message</i>
+                        </a>
+                        <a href="http://127.0.0.1:8000/pics" class="ps-5">
+                            <i class="material-icons" style="font-size:36px">photo</i>
+                        </a>
+                    </div>
+                    <a href="{{route('logout')}}" class="signup ms-3">
+                        <span>LOG OUT</span> </a>
 
                     <!-- toggle icons -->
                     <div class="header-bar d-lg-none">
@@ -61,114 +67,69 @@
         <div class="section-header">
             <h2>List of users</h2>
         </div>
-        <div class="section-wrapper" id="setStatus">
+        <div class="section-wrapper">
             <div class="grid-memberlist" style="position: relative; height: 650.4px;">
-                <div class="grid-member filter-item girl" style="position: absolute; left: 0px; top: 0px;">
+                <div class="grid-member filter-item boy" style="position: absolute; left: 0px; top: 0px;">
                     <div class="lab-item member-item style-1 style-2">
                         <div class="lab-inner">
+                            <div class="lab-thumb">
+                                <img src="{{asset('assets/pics/08.jpg')}}" alt="member-img">
+                            </div>
                             <div class="lab-content">
-                                <h6><a href="">Johanna</a> </h6>
+                                <h6><a href="">Angelina</a> </h6>
                                 <button type="button" class="btn btn-success">Add to list of Highlighted</button>
                             </div>
                         </div>
                     </div>
                 </div>
-
-            </div>
-        </div>
-    </div>
-</section>
-<!-- ================ Highlighting user Section starts here =============== -->
-
-<!-- ================ Approving Pictures starts here=============== -->
-<section class="member-section padding-tb">
-    <div class="container">
-        <div class="section-header">
-            <h2>The following pictures need approval!</h2>
-        </div>
-        <div class="section-wrapper">
-            <div class="row justify-content-center g-3 g-md-4">
-                <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                    <div class="lab-item member-item style-1">
+                <div class="grid-member filter-item girl" style="position: absolute; left: 235.2px; top: 0px;">
+                    <div class="lab-item member-item style-1 style-2">
                         <div class="lab-inner">
                             <div class="lab-thumb">
-                                <img src="" alt="member-img">
+                                <img src="{{asset('assets/pics/09.jpg')}}" alt="member-img">
                             </div>
                             <div class="lab-content">
                                 <h6><a href="">Andrea Guido</a> </h6>
-                                <button type="button" class="btn btn-success">Approve picture</button>
-                                <button type="button" class="btn btn-danger mt-2">Reject picture</button>
+                                <button type="button" class="btn btn-danger">Remove from list of highlighted</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                    <div class="lab-item member-item style-1">
+                <div class="grid-member filter-item boy" style="position: absolute; left: 470.4px; top: 0px;">
+                    <div class="lab-item member-item style-1 style-2">
                         <div class="lab-inner">
                             <div class="lab-thumb">
-                                <img src="" alt="member-img">
+                                <img src="{{asset('assets/pics/05.jpg')}}" alt="member-img">
                             </div>
                             <div class="lab-content">
-                                <h6><a href="">Gihan-Fernando</a></h6>
-                                <button type="button" class="btn btn-success">Approve picture</button>
-                                <button type="button" class="btn btn-danger mt-2">Reject picture</button>
+                                <h6><a href="">Jene Aiko</a> </h6>
+                                <button type="button" class="btn btn-danger">Remove from list of highlighted</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                    <div class="lab-item member-item style-1">
+                <div class="grid-member filter-item girl" style="position: absolute; left: 705.6px; top: 0px;">
+                    <div class="lab-item member-item style-1 style-2">
                         <div class="lab-inner">
                             <div class="lab-thumb">
-                                <img src="" alt="member-img">
+                                <img src="{{asset('assets/pics/10.jpg')}}" alt="member-img">
                             </div>
                             <div class="lab-content">
-                                <h6><a href="">Sweet Admin</a></h6>
-                                <button type="button" class="btn btn-success">Approve picture</button>
-                                <button type="button" class="btn btn-danger mt-2">Reject picture</button>
+                                <h6><a href="">Anna haek</a> </h6>
+                                <button type="button" class="btn btn-success">Add to list of Highlighted</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                    <div class="lab-item member-item style-1">
+                <div class="grid-member filter-item boy" style="position: absolute; left: 940.8px; top: 0px;">
+                    <div class="lab-item member-item style-1 style-2">
                         <div class="lab-inner">
                             <div class="lab-thumb">
-                                <img src="" alt="member-img">
+                                <img src="{{asset('assets/pics/06.jpg')}}" alt="member-img">
                             </div>
                             <div class="lab-content">
-                                <h6><a href="">Gyan-Baffour</a></h6>
-                                <button type="button" class="btn btn-success">Approve picture</button>
-                                <button type="button" class="btn btn-danger mt-2">Reject picture</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                    <div class="lab-item member-item style-1">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="">Teszt Eleking</a></h6>
-                                <button type="button" class="btn btn-success">Approve picture</button>
-                                <button type="button" class="btn btn-danger mt-2">Reject picture</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                    <div class="lab-item member-item style-1">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="">Zeahra Guido</a>
-                                </h6>
-                                <button type="button" class="btn btn-success">Approve picture</button>
-                                <button type="button" class="btn btn-danger mt-2">Reject picture</button>
+                                <h6><a href="">Andrean Puido</a> </h6>
+                                <button type="button" class="btn btn-success">Add to list of Highlighted</button>
                             </div>
                         </div>
                     </div>
@@ -177,79 +138,6 @@
         </div>
     </div>
 </section>
-<!-- ================ Approving Pictures ends here =============== -->
-
-
-
-<!-- ================ Messages approval Section Start Here =============== -->
-<section class="group-section padding-tb bg-img">
-    <div class="container">
-        <div class="section-header">
-            <h2>Recently sent messages</h2>
-        </div>
-        <div class="section-wrapper">
-            <div class="row g-4">
-                <div class="col-xl-6 col-12">
-                    <div class="group-item lab-item">
-                        <div class="lab-inner d-flex flex-wrap align-items-center p-4">
-                            <div class="lab-content">
-                                <h4>From: user</h4>
-                                <h4>To: user</h4>
-                                <p>message content</p>
-                                <button type="button" class="btn btn-success">Approve msg</button>
-                                <button type="button" class="btn btn-danger mt-2">Reject msg</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-12">
-                    <div class="group-item lab-item">
-                        <div class="lab-inner d-flex flex-wrap align-items-center p-4">
-                            <div class="lab-content">
-                                <div class="lab-content">
-                                    <h4>From: user</h4>
-                                    <h4>To: user</h4>
-                                    <p>message content</p>
-                                    <button type="button" class="btn btn-success">Approve msg</button>
-                                    <button type="button" class="btn btn-danger mt-2">Reject msg</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-12">
-                    <div class="group-item lab-item">
-                        <div class="lab-inner d-flex flex-wrap align-items-center p-4">
-                            <div class="lab-content">
-                                <h4>From: user</h4>
-                                <h4>To: user</h4>
-                                <p>message content</p>
-                                <button type="button" class="btn btn-success">Approve msg</button>
-                                <button type="button" class="btn btn-danger mt-2">Reject msg</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-12">
-                    <div class="group-item lab-item">
-                        <div class="lab-inner d-flex flex-wrap align-items-center p-4">
-                            <div class="lab-content">
-                                <h4>From: user</h4>
-                                <h4>To: user</h4>
-                                <p>message content</p>
-                                <button type="button" class="btn btn-success">Approve msg</button>
-                                <button type="button" class="btn btn-danger mt-2">Reject msg</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- ================ Messages approval Section Start Here =============== -->
-
-
 <!-- All Scripts -->
 <script src="{{asset('assets/js/bootstrap.js')}}"></script>
 <script src="{{asset('assets/js/functions.js')}}"></script>

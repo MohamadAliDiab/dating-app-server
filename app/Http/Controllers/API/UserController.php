@@ -30,8 +30,8 @@ class UserController extends Controller {
         return view("home");
     }
 
-    function msgs(){
-        return view("msgs");
+    function messages(){
+        return view("messages");
     }
 
     function logout(){

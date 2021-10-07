@@ -1,12 +1,12 @@
-$(document).ready(show_users);
+// $(document).ready(show_users);
 
 // function show_users(){
 //     show_usersAPI().then(users => {
 //         console.log("test");
 //         $.each(users , function (i , users){
-//             $("#setStatus").append("<div class='grid-member filter-item girl' style='position: absolute; left: 0px; top: 0px;'><div class='lab-item member-item style-1 style-2'>\n" +
+//             $('#setStatus').append("<div class='grid-member filter-item girl' style='position: absolute; left: 0px; top: 0px;'><div class='lab-item member-item style-1 style-2'>\n" +
 //                 "        <div class='lab-inner'>\n" +
-//                 "            <div class='lab-content'>"+ users.first_name + "</div></div></div>");
+//                 "            <div class='lab-content'>"+ users.first_name + "</div></div></div></div>");
 //
 //         })
 //     })

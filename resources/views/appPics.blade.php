@@ -31,15 +31,20 @@
             <div class="header-wrapper">
                 <div class="logo">
                 </div>
-                <a href="messages.blade.php" class="navbar-right">
-                    <i class="material-icons" style="font-size:36px">message</i>
-                </a>
-                <a href="appPics.blade.php" class="col-md-2">
-                    <i class="material-icons" style="font-size:36px">photo</i>
-                </a>
-                <div class="menu-area">
-                    <a href="{{route('logout')}}" class="signup"><span>LOG OUT</span> </a>
-
+                <div class="menu-area col-lg-4">
+                    <div class="col-lg-8">
+                        <a href="http://127.0.0.1:8000/home" class="ps-5" >
+                            <i class="material-icons" style="font-size:36px">home</i>
+                        </a>
+                        <a href="http://127.0.0.1:8000/messages" class="ps-5">
+                            <i class="material-icons" style="font-size:36px">message</i>
+                        </a>
+                        <a href="http://127.0.0.1:8000/pics" class="ps-5">
+                            <i class="material-icons" style="font-size:36px">photo</i>
+                        </a>
+                    </div>
+                    <a href="{{route('logout')}}" class="signup ms-3">
+                        <span>LOG OUT</span> </a>
                     <!-- toggle icons -->
                     <div class="header-bar d-lg-none">
                         <span></span>
@@ -65,7 +70,7 @@
                     <div class="lab-item member-item style-1">
                         <div class="lab-inner">
                             <div class="lab-thumb">
-                                <img src="" alt="member-img">
+                                <img src="{{asset('assets/pics/01_002.jpg')}}" alt="member-img">
                             </div>
                             <div class="lab-content">
                                 <h6><a href="">Andrea Guido</a> </h6>
@@ -79,7 +84,7 @@
                     <div class="lab-item member-item style-1">
                         <div class="lab-inner">
                             <div class="lab-thumb">
-                                <img src="" alt="member-img">
+                                <img src="{{asset('assets/pics/01_004.jpg')}}" alt="member-img">
                             </div>
                             <div class="lab-content">
                                 <h6><a href="">Gihan-Fernando</a></h6>
@@ -93,7 +98,7 @@
                     <div class="lab-item member-item style-1">
                         <div class="lab-inner">
                             <div class="lab-thumb">
-                                <img src="" alt="member-img">
+                                <img src="{{asset('assets/pics/02_004.jpg')}}" alt="member-img">
                             </div>
                             <div class="lab-content">
                                 <h6><a href="">Sweet Admin</a></h6>
@@ -107,7 +112,7 @@
                     <div class="lab-item member-item style-1">
                         <div class="lab-inner">
                             <div class="lab-thumb">
-                                <img src="" alt="member-img">
+                                <img src="{{asset('assets/pics/04_002.jpg')}}" alt="member-img">
                             </div>
                             <div class="lab-content">
                                 <h6><a href="">Gyan-Baffour</a></h6>
@@ -121,7 +126,7 @@
                     <div class="lab-item member-item style-1">
                         <div class="lab-inner">
                             <div class="lab-thumb">
-                                <img src="" alt="member-img">
+                                <img src="{{asset('assets/pics/07.jpg')}}" alt="member-img">
                             </div>
                             <div class="lab-content">
                                 <h6><a href="">Teszt Eleking</a></h6>
@@ -135,7 +140,7 @@
                     <div class="lab-item member-item style-1">
                         <div class="lab-inner">
                             <div class="lab-thumb">
-                                <img src="" alt="member-img">
+                                <img src="{{asset('assets/pics/08.jpg')}}" alt="member-img">
                             </div>
                             <div class="lab-content">
                                 <h6><a href="">Zeahra Guido</a>

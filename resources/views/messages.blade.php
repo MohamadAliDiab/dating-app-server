@@ -31,15 +31,20 @@
             <div class="header-wrapper">
                 <div class="logo">
                 </div>
-                <a href="messages.blade.php" class="navbar-right">
-                    <i class="material-icons" style="font-size:36px">message</i>
-                </a>
-                <a href="appPics.blade.php" class="col-md-2">
-                    <i class="material-icons" style="font-size:36px">photo</i>
-                </a>
-                <div class="menu-area">
-                    <a href="{{route('logout')}}" class="signup"><span>LOG OUT</span> </a>
-
+                <div class="menu-area col-lg-4">
+                    <div class="col-lg-8">
+                        <a href="http://127.0.0.1:8000/home" class="ps-5" >
+                            <i class="material-icons" style="font-size:36px">home</i>
+                        </a>
+                        <a href="http://127.0.0.1:8000/messages" class="ps-5">
+                            <i class="material-icons" style="font-size:36px">message</i>
+                        </a>
+                        <a href="http://127.0.0.1:8000/pics" class="ps-5">
+                            <i class="material-icons" style="font-size:36px">photo</i>
+                        </a>
+                    </div>
+                    <a href="{{route('logout')}}" class="signup ms-3">
+                        <span>LOG OUT</span> </a>
                     <!-- toggle icons -->
                     <div class="header-bar d-lg-none">
                         <span></span>
@@ -65,11 +70,13 @@
                     <div class="group-item lab-item">
                         <div class="lab-inner d-flex flex-wrap align-items-center p-4">
                             <div class="lab-content">
-                                <h4>From: user</h4>
-                                <h4>To: user</h4>
-                                <p>message content</p>
-                                <button type="button" class="btn btn-success">Approve msg</button>
-                                <button type="button" class="btn btn-danger mt-2">Reject msg</button>
+                                <div class="lab-content">
+                                    <h4>From: user</h4>
+                                    <h4>To: user</h4>
+                                    <p>message content</p>
+                                    <button type="button" class="btn btn-success">Approve msg</button>
+                                    <button type="button" class="btn btn-danger mt-2">Reject msg</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -93,11 +100,13 @@
                     <div class="group-item lab-item">
                         <div class="lab-inner d-flex flex-wrap align-items-center p-4">
                             <div class="lab-content">
-                                <h4>From: user</h4>
-                                <h4>To: user</h4>
-                                <p>message content</p>
-                                <button type="button" class="btn btn-success">Approve msg</button>
-                                <button type="button" class="btn btn-danger mt-2">Reject msg</button>
+                                <div class="lab-content">
+                                    <h4>From: user</h4>
+                                    <h4>To: user</h4>
+                                    <p>message content</p>
+                                    <button type="button" class="btn btn-success">Approve msg</button>
+                                    <button type="button" class="btn btn-danger mt-2">Reject msg</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -106,11 +115,13 @@
                     <div class="group-item lab-item">
                         <div class="lab-inner d-flex flex-wrap align-items-center p-4">
                             <div class="lab-content">
-                                <h4>From: user</h4>
-                                <h4>To: user</h4>
-                                <p>message content</p>
-                                <button type="button" class="btn btn-success">Approve msg</button>
-                                <button type="button" class="btn btn-danger mt-2">Reject msg</button>
+                                <div class="lab-content">
+                                    <h4>From: user</h4>
+                                    <h4>To: user</h4>
+                                    <p>message content</p>
+                                    <button type="button" class="btn btn-success">Approve msg</button>
+                                    <button type="button" class="btn btn-danger mt-2">Reject msg</button>
+                                </div>
                             </div>
                         </div>
                     </div>
